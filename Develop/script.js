@@ -1,10 +1,5 @@
 // Assignment code here
 
-// let finalPassword = str();
-// let selectionStr = str();
-
-
-
 
 function generatePassword() {
   // Create used variables
@@ -13,20 +8,28 @@ function generatePassword() {
   const specialCase = [' ', '!', `"`, '#', '$', '%', '&', `'`, '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '[', `\\\\`, ']', '^', '_', '`', '{', '|', '}', '~'];
   const numbers =     ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
-//      Create prompts for password criteria
-// Create password input between or equal to 8 & 128 characters.
-// Do you want uppercase characters?
-// Do you want lowercase Characters?
-// Do you want numbers?
-// Do you want spcial characters?
+  let finalPassword = ("");
+  let selectionStr = ("");
 
+//      Create prompts for password criteria
+
+// Create password input between or equal to 8 & 128 characters.
+let passwordLength = prompt("Chose a number between 8 and 128.")
+// Do you want uppercase characters?
+let caseUpper = confirm("Do you want any upper case characters?")
+// Do you want lowercase Characters?
+let caseLower = confirm("Do you want any lower case characters?")
+// Do you want numbers?
+let caseNumber = confirm("Do you want any numbers?")
+// Do you want spcial characters?
+let caseSpecial = confirm("Do you want any special case characters?")
 // Validate that at least one of the selections is true and that the characters are between set numbers. 
+
 // Password would be made when validated. 
 
 
-
 //Display password in an alert or written to the page. 
-  return "password"
+  return password
 }
 
 
