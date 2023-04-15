@@ -1,31 +1,35 @@
 // Assignment code here
 
-const lowerCase =   ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
-const upperCase =   ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
-const specialCase = [' ', '!', `"`, '#', '$', '%', '&', `'`, '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '[', `\\\\`, ']', '^', '_', '`', '{', '|', '}', '~'];
-const numbers =     ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+
 
 function generatePassword() {
   // Create used variables
+  const lowerCase =   "abcdefghijklmnopqrstuvwxyz";
+  const upperCase =   "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  const specialCase = "!@#$%^&*()_+~`|}{[]:;?><,./-=";
+  const numbers =     "0123456789";
 
 
-  let finalPassword = "";
-  let selectionStr = "";
 
 //      Create prompts for password criteria
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-// Create password input between or equal to 8 & 128 characters.
+// Create password input between or equal to 8 & 128 characters. Also sets string to number with parseInt
 let passwordLength = prompt("Choose a number between 8 and 128.");
 passwordLength = parseInt(passwordLength);
 
 //Alerts user if password isn't within accepted range.
-  if (passwordLength < 8 || passwordLength > 128) {
+  if (passwordLength < 8 || passwordLength > 128 || isNaN(passwordLength)) {
     alert("Please choose a number between 8 and 128.");
     return "";
-  }
+  } 
   
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+let finalPassword = "";
+let selectionStr = "";
+
+
   // Do you want uppercase characters?
 let caseUpper = confirm("Do you want any upper case characters?"); 
   if (caseUpper) {
@@ -44,13 +48,23 @@ if (caseNumber) {
   selectionStr =+ numbers;
 }
 
-  // Do you want spcial characters?
+  // Do you want special characters?
 let caseSpecial = confirm("Do you want any special case characters?");
 if (caseSpecial) {
   selectionStr =+ specialCase;
 }
+// Will ensure that at least one of the characters is selected. 
+while (!caseLower || !caseNumber || !caseUpper || !caseSpecial) {
+  alert("Please make sure to include a minimum of one type of character: Special, Upper, Lower or Number"); {
+    return "";
+  }
+}
 
-console.log(selectionStr);
+// Will randomize the selected characters within selectionStr. 
+for(var i = 0; i < passwordLength; i++) {
+  let randomizedSet = (Math.floor(Math.random() * selectionStr.length));
+  finalPassword += selectionStr[randomizedSet];
+}
 
   
 
@@ -58,6 +72,8 @@ console.log(selectionStr);
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 // Validate that at least one of the selections is true and that the characters are between set numbers. 
+
+  // finalPassword = selectionStr.sort(() => Math.random() - 0.5);
 
   return finalPassword
 }
