@@ -33,28 +33,30 @@ let selectionStr = "";
   // Do you want uppercase characters?
 let caseUpper = confirm("Do you want any upper case characters?"); 
   if (caseUpper) {
-    selectionStr =+ lowerCase;
+    selectionStr += lowerCase;
   }
 
   // Do you want lowercase Characters?
 let caseLower = confirm("Do you want any lower case characters?");
   if (caseLower) {
-    selectionStr =+ lowerCase;
+    selectionStr += lowerCase;
   }
   
   // Do you want numbers?
 let caseNumber = confirm("Do you want any numbers?");
 if (caseNumber) {
-  selectionStr =+ numbers;
+  selectionStr += numbers;
 }
 
   // Do you want special characters?
 let caseSpecial = confirm("Do you want any special case characters?");
 if (caseSpecial) {
-  selectionStr =+ specialCase;
+  selectionStr += specialCase;
 }
+
+// Validate that at least one of the selections is true and that the characters are between set numbers. 
 // Will ensure that at least one of the characters is selected. 
-while (!caseLower || !caseNumber || !caseUpper || !caseSpecial) {
+while (!(caseLower || caseNumber || caseUpper || caseSpecial)) {
   alert("Please make sure to include a minimum of one type of character: Special, Upper, Lower or Number"); {
     return "";
   }
@@ -71,11 +73,11 @@ for(var i = 0; i < passwordLength; i++) {
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-// Validate that at least one of the selections is true and that the characters are between set numbers. 
 
-  // finalPassword = selectionStr.sort(() => Math.random() - 0.5);
 
-  return finalPassword
+  finalPassword = selectionStr.sort(() => Math.random() - 0.5);
+
+  return finalPassword(passwordLength, )
 }
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
