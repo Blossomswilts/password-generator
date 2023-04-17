@@ -33,41 +33,46 @@ function generatePassword() {
   // Do you want uppercase characters?
   let caseUpper = confirm("Do you want any upper case characters?");
   if (caseUpper) {
+    //Guarantees that one of each 'true' boolean will be implemented in = 'finalPassword'.
+    finalPassword += upperCase[Math.floor(Math.random() * upperCase.length)];
     selectionStr += upperCase;
   }
 
   // Do you want lowercase Characters?
   let caseLower = confirm("Do you want any lower case characters?");
   if (caseLower) {
+    finalPassword += lowerCase[Math.floor(Math.random() * lowerCase.length)];
     selectionStr += lowerCase;
   }
 
   // Do you want numbers?
   let caseNumber = confirm("Do you want any numbers?");
   if (caseNumber) {
+    finalPassword += numbers[Math.floor(Math.random() * numbers.length)];
     selectionStr += numbers;
   }
 
   // Do you want special characters?
   let caseSpecial = confirm("Do you want any special case characters?");
   if (caseSpecial) {
+    finalPassword += specialCase[Math.floor(Math.random() * specialCase.length)];
     selectionStr += specialCase;
   }
 
   // Validate that at least one of the selections is true and that the characters are between set numbers. 
   // Will ensure that at least one of the characters is selected. 
   // Needs to be encased, as if not, will prompt alert even if one is not selected. 
-  while (!(caseLower || caseNumber || caseUpper || caseSpecial)) {
-    alert("Please make sure to include a minimum of one type of character: Special, Upper, Lower or Number"); {
-      return "";
-    }
+  if (!(caseLower || caseNumber || caseUpper || caseSpecial)) {
+    alert("Please make sure to include a minimum of one type of character: Special, Upper, Lower or Number");
+    return "";
   }
 
   //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   // Will randomize the selected characters within selectionStr.
+  const catSelect = finalPassword.length; 
 
-  for (var i = 0; i < passwordLength; i++) {
-    let randomizedSet = selectionStr[Math.floor(Math.random() * selectionStr.length)];
+  for (let i = 0; i < passwordLength - catSelect; i++) {
+    const randomizedSet = selectionStr[Math.floor(Math.random() * selectionStr.length)];
     finalPassword += randomizedSet
     // selectionStr = randomizedSet; ** This would overwrite selectionStr, above example as what should be Concat **
     console.log("line 71", finalPassword)
@@ -78,8 +83,7 @@ function generatePassword() {
   //Final password to be generated into function.
 
   //Attempts to randomize finalPassword before completing function. 
-  // finalPassword = selectionStr => [...selectionStr].sort(() => Math.random() - 0.5).join("");   //*output not what is should be. check prev randomizer maybe?
-  return finalPassword
+  return finalPassword.split("").sort(() => Math.random() - 0.5).join("");
 }
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
