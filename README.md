@@ -25,7 +25,7 @@ Confirm the length before continuing to the randomizer, and minimize it by targe
 * Ladislav Jarabek : Coding Bootcamp Instructor
 * Dru Sanchez : Coding Bootcmap Tutor
 
-Link to deployed Website: 
+Link to deployed Website: https://blossomswilts.github.io/password-generator/
 
 mit
 
