@@ -15,7 +15,9 @@
 ## Some of the problems solved that are of interest.
 
 To add a guaranteed character within the final password, you can use this code when iterating through the selections of wether or not you want certain characters;
-``` variable += upperCase[Math.floor(Math.random() * variableTarget.length)]
+``` 
+variable += upperCase[Math.floor(Math.random() * variableTarget.length)]
+```
 Confirm the length before continuing to the randomizer, and minimize it by target new variable.
 
 ## Resources:
